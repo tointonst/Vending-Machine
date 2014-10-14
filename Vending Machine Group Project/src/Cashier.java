@@ -1,13 +1,17 @@
 import java.util.Scanner; 
 	public class Cashier
 		{
-		private int currentCents; 
+		public static void main(String[] args)
+		{
 		
-			public int[] addMoney(int value) 
+
+		}
+		
+		public int[] addMoney(int value) 
 			{
 				System.out.println("Please insert money. ex Quarters, Dimes, Nickels, Pennies");
 				Scanner userInput1 = new Scanner(System.in);
-				int money = userInput1.nextInt();
+				String money = userInput1.next();
 				
 				for(int i = 0; i < 10; i++) 
 					{
@@ -19,6 +23,24 @@ import java.util.Scanner;
 						{
 							value = value + 10; 
 						}
+						if(userInput1.equals("Nickele") || userInput1.equals("nickele")) 
+						{
+							value = value + 5; 
+						}
+						if(userInput1.equals("Penny") || userInput1.equals("penny")) 
+						{
+							value = value + 1; 
+						}
+						else 
+						{
+							value = value + 0; 
+						}
 					} 
+				return ; 
+			}
+			
+			public int[] currentValue() 
+			{
+				
 			}
 		}

@@ -3,7 +3,6 @@ public class Product
 	{
 	private int price;
 	private String snackname;
-	private int costInCents;
 	
 	public Product(int p, String sn)
 		{
@@ -29,6 +28,5 @@ public class Product
 		{
 		this.snackname = snackname;
 		}
-	//bob
 
 	}

@@ -1,32 +1,26 @@
 
 public class Product
 	{
-	private int price;
-	private String snackname;
+	private int costInCents;
+	private String snackName;
 	
-	public Product(int p, String sn)
+	public Product(String name ,int price )
 		{
-		price=p;
+		snackName = name;
+		costInCents = price;
 		}
 
-	public int getPrice()
+	public String getSnackName()
 		{
-		return price;
+		return snackName;
 		}
-
-	public void setPrice(int price)
+	
+	public int[] getPrice()
 		{
-		this.price = price;
-		}
-
-	public String getSnackname()
-		{
-		return snackname;
-		}
-
-	public void setSnackname(String snackname)
-		{
-		this.snackname = snackname;
+		int[] money = new int[2];
+		money[0] = costInCents/100;
+		money[1] = costInCents % 100;
+		return money;
 		}
 
 	}

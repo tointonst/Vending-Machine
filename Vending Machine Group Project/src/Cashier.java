@@ -1,46 +1,33 @@
 import java.util.Scanner; 
 	public class Cashier
 		{
-		public static void main(String[] args)
+		private int currentCents = 0;
+		private int theMoney = 0; 
+		public int[] addMoney(int value)
 		{
-		
-
+			currentCents = currentCents + value; 
+			return currentValue(); 
 		}
-		
-		public int[] addMoney(int value) 
-			{
-				System.out.println("Please insert money. ex Quarters, Dimes, Nickels, Pennies");
-				Scanner userInput1 = new Scanner(System.in);
-				String money = userInput1.next();
-				
-				for(int i = 0; i < 10; i++) 
-					{
-						if(userInput1.equals("Quarter") || userInput1.equals("quarter")) 
-						{
-							value = value + 25; 
-						}
-						if(userInput1.equals("Dime") || userInput1.equals("dime")) 
-						{
-							value = value + 10; 
-						}
-						if(userInput1.equals("Nickele") || userInput1.equals("nickele")) 
-						{
-							value = value + 5; 
-						}
-						if(userInput1.equals("Penny") || userInput1.equals("penny")) 
-						{
-							value = value + 1; 
-						}
-						else 
-						{
-							value = value + 0; 
-						}
-					} 
-				return ; 
-			}
-			
-			public int[] currentValue() 
-			{
-				
-			}
+		public int[] currentValue() 
+		{ 
+			return new int[]{currentCents / 100, currentCents -(currentCents / 100) * 100}; 
 		}
+		public static int toPennies(int[] value) 
+		{
+		  	return ((value[0] * 100) + value[1]); 
+		}
+		public void purchase(int price) 
+		{
+			theMoney += price; 
+			currentCents -= price;
+		}
+		public static String showCash(int[] money) 
+		{
+			return "$" + money[0] + "." + money[1]; 
+		}
+		public String returnChange(int[] money) 
+		{
+		  	currentCents -= toPennies(money); 
+		  	return showCash(money); 
+		}
+	 }
